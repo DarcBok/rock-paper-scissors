@@ -111,6 +111,7 @@ function resetScreen() {
     updateScores();
     canvas.classList.remove('active');
     playAgain.classList.remove('active');
+    confetti.clear()
 }
 
 playAgain.addEventListener("click", resetScreen);
@@ -120,10 +121,12 @@ function gameOver(winner) {
         message.textContent = "You reached 5 points! You win the game!";
         playAgain.classList.add('active');
         canvas.classList.add('active');
+        confetti = new ConfettiGenerator(confettiSettings);
         confetti.render();
     } else {
         message.textContent = "Computer reached 5 points! You lose!";
         playAgain.classList.add('active');
+        canvas.classList.add('active');
     }
 }
 
